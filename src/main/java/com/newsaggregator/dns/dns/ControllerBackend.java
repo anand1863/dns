@@ -39,7 +39,7 @@ public class ControllerBackend
 	public String mytext(@RequestParam(required=false) String sources,@RequestParam(required=false) String domains,@RequestParam(required=false) String excludeDomains,@RequestParam(required=false) String from,@RequestParam(required=false) String to,@RequestParam(required=false) String language,@RequestParam(required=false) String sortBy,@RequestParam(required=false) int page,@RequestParam(required=false) int pageSize,@RequestParam(required=true) String apiKey,@RequestParam(required=false) String f) {
 		
 		Request2 req = new Request2();
-		req.setDomain(sources);
+		req.setDomains(sources);
 		req.setDomains(domains);
 		req.setExcludeDomains(excludeDomains);
 		req.setFrom(from);

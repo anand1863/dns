@@ -70,7 +70,7 @@ public class MappingCall2 {
 			finalUrl = finalUrl + "&" + sortby;
 		}
 		
-/*		if(req.getPageSize()!=null)
+		if(req.getPageSize()!=null)
 		{
 			finalUrl = finalUrl + "&" + pagesize;
 		}
@@ -78,7 +78,7 @@ public class MappingCall2 {
 		if(req.getPage()!=null)
 		{
 			finalUrl = finalUrl + "&" + page;
-		} */
+		} 
 		System.out.println("2 : " +finalUrl);			
 				
 		HttpClient client = HttpClientBuilder.create().build();
