@@ -2,23 +2,13 @@ package com.newsaggregator.dns.dns;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import org.apache.http.*;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClientBuilder;
 
 @RestController
 public class ControllerBackend 
 {
 	@GetMapping(value="/topheadlines")
-		public String index(@RequestParam(required=false) String country,@RequestParam(required=false) String category,@RequestParam(required=false) String q,@RequestParam(required=true) String apiKey,@RequestParam(required=false) String sources ) 
+		public String index(@RequestParam(required=false) String country,@RequestParam(required=false) String category,@RequestParam(required=false) String q,@RequestParam(required=true) String apiKey) 
 	{
 		
 		
@@ -36,18 +26,19 @@ public class ControllerBackend
 
 	}
 	@GetMapping(value="/everything")
-	public String mytext(@RequestParam(required=false) String sources,@RequestParam(required=false) String domains,@RequestParam(required=false) String excludeDomains,@RequestParam(required=false) String from,@RequestParam(required=false) String to,@RequestParam(required=false) String language,@RequestParam(required=false) String sortBy,@RequestParam(required=false) int page,@RequestParam(required=false) int pageSize,@RequestParam(required=true) String apiKey,@RequestParam(required=false) String f) {
+	public String mytext(@RequestParam(required=false) String domains,@RequestParam(required=false) String excludeDomains,@RequestParam(required=false) String from,@RequestParam(required=false) String to,@RequestParam(required=false) String language,@RequestParam(required=false) String sortBy,@RequestParam(required=false) int page,@RequestParam(required=false) int pageSize,@RequestParam(required=true) String apiKey,@RequestParam(required=false) String f) {
 		
 		Request2 req = new Request2();
-		req.setDomains(sources);
 		req.setDomains(domains);
 		req.setExcludeDomains(excludeDomains);
 		req.setFrom(from);
 		req.setTo(to);
 		req.setLanguage(language);
 		req.setSortBy(sortBy);
-		req.setPageSize(pageSize);
+/*
+ 		req.setPageSize(pageSize);
 		req.setPage(page);
+  */
 		req.setApiKey(apiKey);
 		req.setF(f);
 		
@@ -56,5 +47,29 @@ public class ControllerBackend
 		
 		return 	result3;
 	}
-  
+	@GetMapping(value="/pallindrome")
+	public String pallindrome(@RequestParam(required=true) String pall){
+		ChkPallindrome ck = new ChkPallindrome();
+		
+		//System.out.println(ck.pallindromefunc(pall));
+		return ck.pallindromefunc(pall);
+	}
+	@GetMapping(value="/sumofdigits")
+	public String sod(@RequestParam(required=true)int number) {
+		Sum s = new Sum();
+		//System.out.println(s.sumofdigits(number));
+		return s.sumofdigits(number);
+	}
+	@GetMapping(value="/factorial")
+	public int fact(@RequestParam(required=true)int numbers) {
+		System.out.println("input value" + numbers);
+		Factorial f = new Factorial();
+		System.out.println(f.fact(numbers));
+		return f.fact(numbers);
+	}
+	@GetMapping(value="/prime")
+	public int prime(@RequestParam(required=true) int number) {
+		Prime pr = new Prime(number);
+		return pr.primeno(flag);
+	}
 }

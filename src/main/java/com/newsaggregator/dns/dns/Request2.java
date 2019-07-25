@@ -65,7 +65,7 @@ public String getSortBy() {
 }
 public void setSortBy(String sortBy) {
 	this.sortBy = sortBy;
-}
+}/*
 public int getPageSize() {
 	return pageSize;
 }
@@ -73,11 +73,11 @@ public int getPageSize() {
 public void setPageSize(int pageSize) {
 	this.pageSize = pageSize;
 }
-public int getPage() {
+public String getPage() {
 	return page;
 }
 public void setPage(int page) {
 	this.page = page;
-}
+} */
 
 }

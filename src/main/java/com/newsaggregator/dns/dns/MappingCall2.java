@@ -11,7 +11,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 public class MappingCall2 {
 
-	public String index3(Request2 req) {
+	public String index3(Request2 req) { //Re
 		
 		System.out.println(req.getDomains());
 			
@@ -25,8 +25,8 @@ public class MappingCall2 {
 		String excludedomains = "excludedomains=" + req.getExcludeDomains();
 		String language = "language=" + req.getLanguage();
 		String sortby = "sortby=" + req.getSortBy();
-		String pagesize = "pagesize=" + req.getPageSize();
-		String page = "page=" + req.getPage();
+/*		String pagesize = "pagesize=" + req.getPageSize();
+		String page = "page=" + req.getPage();*/
 
 
 
@@ -70,15 +70,15 @@ public class MappingCall2 {
 			finalUrl = finalUrl + "&" + sortby;
 		}
 		
-		if(req.getPageSize()!=null)
+/*		if(req.getPageSize()!=null)
 		{
 			finalUrl = finalUrl + "&" + pagesize;
 		}
 		
-		if(req.getPage()!=null)
+		if(req.getPage() !=null) 
 		{
 			finalUrl = finalUrl + "&" + page;
-		} 
+		}  */
 		System.out.println("2 : " +finalUrl);			
 				
 		HttpClient client = HttpClientBuilder.create().build();
