@@ -83,6 +83,12 @@ public class ControllerBackend
 			return s;
 
 		}
-			
+		
+	}
+	@GetMapping(value="/reversestring")
+	public String rev(String s) {
+		System.out.println("Input the string "+s);
+		Reverse st = new Reverse();
+		return st.reverse(s);
 	}
 }
