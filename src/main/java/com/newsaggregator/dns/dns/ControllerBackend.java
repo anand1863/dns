@@ -1,6 +1,9 @@
 package com.newsaggregator.dns.dns;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -68,8 +71,18 @@ public class ControllerBackend
 		return f.fact(numbers);
 	}
 	@GetMapping(value="/prime")
-	public int prime(@RequestParam(required=true) int number) {
-		Prime pr = new Prime(number);
-		return pr.primeno(flag);
+	public String prime(@RequestParam(required=true) int number) {
+		Prime pr = new Prime();
+		int flag=pr.primeno(number);
+		if(flag==0) {
+			String s="Number is Prime :" + number;
+			return s;
+		}
+		else {
+			String s="Number is NOT Prime :" + number;
+			return s;
+
+		}
+			
 	}
 }
