@@ -91,4 +91,9 @@ public class ControllerBackend
 		Reverse st = new Reverse();
 		return st.reverse(s);
 	}
+	@GetMapping(value="/owner")
+	public String name(String s) {
+		
+		return("AThe Owner of the API: "+s);
+	}
 }
