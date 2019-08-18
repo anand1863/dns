@@ -92,9 +92,15 @@ public class ControllerBackend
 		return st.reverse(s);
 	}
 	@GetMapping(value="/owner")
-	public String name(String s) {
+	public String name(@RequestParam(required=true) String s) {
 		
 
 		return("Anand is the Owner of the API: "+s);
+	}
+	@GetMapping(value="/gardener")
+	public String gardname(@RequestParam(required=true) String s) {
+		
+
+		return("Name of the gardener : "+s);
 	}
 }
