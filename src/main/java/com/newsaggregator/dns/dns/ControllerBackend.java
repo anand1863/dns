@@ -94,6 +94,7 @@ public class ControllerBackend
 	@GetMapping(value="/owner")
 	public String name(String s) {
 		
-		return("The Owner of the API: "+s);
+
+		return("Anand is the Owner of the API: "+s);
 	}
 }
