@@ -86,7 +86,7 @@ public class ControllerBackend
 		
 	}
 	@GetMapping(value="/reversestring")
-	public String rev(String s) {
+	public String rev(@RequestParam(required=true) String s) {
 		System.out.println("Input the string "+s);
 		Reverse st = new Reverse();
 		return st.reverse(s);
@@ -94,6 +94,6 @@ public class ControllerBackend
 	@GetMapping(value="/owner")
 	public String name(String s) {
 		
-		return("AThe Owner of the API: "+s);
+		return("The Owner of the API: "+s);
 	}
 }
