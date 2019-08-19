@@ -4,6 +4,7 @@ set path of jdk
 Clone the git repository and either run it on your IDE or you can use command prompt to run the project.
 
 
+
 Following are the steps to run the project in command promt:
 
 From command prompt move to the directory which has the project                                             
